@@ -12,12 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_g8441.mk \
-    $(LOCAL_DIR)/lineage_lilac.mk
+# Inherit device parts
+$(call inherit-product, device/sony/lilac/aosp_g8441.mk)
 
-COMMON_LUNCH_CHOICES += \
-    aosp_g8441-eng \
-    aosp_g8441-userdebug \
-    lineage_lilac-eng \
-    lineage_lilac-userdebug
+# Override Product Name
+PRODUCT_NAME := lineage_lilac
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := lilac
+
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
